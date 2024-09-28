@@ -1,0 +1,8 @@
+.recipe{
+    border: solid black 2px;
+    margin: 0.5em;
+    padding: 0.5em;
+    width: 10em;
+    height: 14em;
+    border-radius: 5%;
+}

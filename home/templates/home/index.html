@@ -1,0 +1,19 @@
+{% block content %}
+<h1>Welcome to my webpage</h1>
+<ul>
+    <li>
+        <a href="{% url 'task_list' %}">Todo List</a>
+    </li>
+    <li>
+        <a href="{% url 'coffee_recipes' %}">Coffee Recipes</a>
+    </li>
+    <li>
+        <a href="{% url 'fow_life_tracker' %}">Fow Life Tracker</a>
+    </li>
+</ul>
+
+{% endblock %}
+
+{% block newContent %}
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block content %}
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+
+<h1>Tasks</h1>
+
+<a href="{% url 'add_task' %}">Add Task</a>
+
+{% if tasks|length > 0 %}
+    <ul>{% for task in tasks %}
+        <li>
+            {{ task.title }}
+            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+            <script>
+                var csrftoken = document.querySelector('[name="csrfmiddlewaretoken"]').value;
+            </script>
+            {% if task.completed %}
+            <input type="checkbox" class="completed-check" value="{{ task.id }}" checked>
+            {% else %}
+            <input type="checkbox" class="completed-check" value="{{ task.id }}">
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+<p>No tasks yet</p>
+{% endif %}
+{% endblock %}

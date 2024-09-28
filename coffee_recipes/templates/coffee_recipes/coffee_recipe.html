@@ -1,0 +1,26 @@
+{% extends "./index.html" %}
+
+{% block content %}
+    <title>Coffee Recipes</title>
+    <h1>Coffee Recipes</h1>
+    <a href="{% url 'index' %}">Back</a>
+    <ul>
+
+    {% include './add_recipe.html' %}
+
+    {% if recipes|length > 0 %}
+        {% for recipe in recipes %}
+            <li class="recipe">
+                <p>{{ recipe.title }}</p>
+                <p>Rating: {{ recipe.rating }}/10</p>
+                <p>Grinds: {{ recipe.grind }}<p>
+                <p>{% for tag in recipe.tags.all %}</p>
+                <p>{{ tag }},</p>
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No recipes</p>
+    {% endif %}
+{% endblock %}

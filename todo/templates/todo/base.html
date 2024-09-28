@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Website Vert</title>
+</head>
+<body>
+  <header>
+    <h1>Base Template</h1>
+        <a href="{% url 'index' %}">Home Page</a>
+  </header>
+
+  {% block content %}
+  {% endblock %}
+
+  <footer>
+    <p>My Website Footer</p>
+  </footer>
+</body>
+</html>
